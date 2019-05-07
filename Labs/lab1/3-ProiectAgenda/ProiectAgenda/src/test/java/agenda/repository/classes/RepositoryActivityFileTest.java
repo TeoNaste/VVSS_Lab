@@ -138,4 +138,40 @@ public class RepositoryActivityFileTest {
         Activity activity = new Activity("act5",start,duration,contacts,"desc5");
         assertTrue(repAct.addActivity(activity));
     }
+
+    @Test
+    public void raportValid(){
+        Calendar c = Calendar.getInstance();
+        c.set(2019, 3 - 1, 20);
+        Date start = c.getTime();
+
+        c.set(2019,3-1,21);
+        Date duration = c.getTime();
+
+        c.set(2019,3-1,22);
+        Date duration2 = c.getTime();
+
+        Activity activity = new Activity("act",start,duration,contacts,"desc5");
+        Activity activity2 = new Activity("act",duration,duration2,contacts,"desc6");
+        assertTrue(repAct.addActivity(activity2));
+        assertTrue(repAct.addActivity(activity));
+
+        assertTrue(repAct.activitiesOnDate("act",start).size() == 1);
+        assertTrue(repAct.activitiesOnDate("act",duration).size() == 2);
+    }
+
+    @Test
+    public void raportNevalid(){
+        Calendar c = Calendar.getInstance();
+        c.set(2019, 3 - 1, 20);
+        Date start = c.getTime();
+
+        c.set(2019,3-1,21);
+        Date duration = c.getTime();
+
+        Activity activity = new Activity("act5",start,duration,contacts,"desc5");
+        assertTrue(repAct.addActivity(activity));
+
+        assertTrue(repAct.activitiesOnDate("act",start).size() == 0);
+    }
 }

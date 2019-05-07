@@ -66,6 +66,7 @@ public class RepositoryActivityFile implements RepositoryActivity{
 		}
 		if ( !conflicts ) {
 			activities.add(activity);
+
 			return true;
 		}
 		return false;
