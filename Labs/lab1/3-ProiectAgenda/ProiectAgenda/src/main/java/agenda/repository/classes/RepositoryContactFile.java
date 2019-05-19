@@ -15,7 +15,7 @@ import agenda.repository.interfaces.RepositoryContact;
 
 public class RepositoryContactFile implements RepositoryContact {
 
-	private static final String filename = "D:\\an3\\sem2\\vvss\\vvssgit\\Labs\\lab1\\3-ProiectAgenda\\ProiectAgenda\\files\\contacts.txt";
+	private static final String filename = "files\\contacts.txt";
 	private List<Contact> contacts;
 
 	public RepositoryContactFile() throws Exception {
