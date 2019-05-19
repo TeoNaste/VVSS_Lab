@@ -44,7 +44,7 @@ public class RepositoryContactFileTest {
             repo.addContact("Name","Adress","012");
             assertEquals(repo.count(),5);
         } catch (InvalidFormatException e) {
-            assertTrue("Invalid format exception",false);
+            assertTrue("Invalid format exception",true);
         } catch (Exception e) {
             e.printStackTrace();
         }
